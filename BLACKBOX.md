@@ -1,0 +1,2 @@
+## Blackbox Added Memories
+- Proyecto: MVP de transporte (no Uber) con rutas fijas A→B, paradas intermedias, sin pagos/pricing dinámico/tracking. Stack: Go backend + Postgres (Neon) + Flutter frontend. Arquitectura monolito simple, API REST JSON. Endpoints: listar rutas, ver detalle, crear reservas, consultar estado. Restricciones: sin Docker/JWT/microservicios, validaciones mínimas, desarrollo rápido. Convenciones: UUIDs, timestamps, JSON responses, HTTP 200 OK.
