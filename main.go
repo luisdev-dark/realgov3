@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/joho/godotenv"
 	"github.com/luisdev-dark/realgov3.git/db"
@@ -25,9 +26,15 @@ func main() {
 	r := routes.SetupRouter()
 
 	// Iniciar servidor
-	port := ":8080"
-	log.Printf("Servidor iniciado en puerto %s", port)
-	if err := http.ListenAndServe(port, r); err != nil {
+	port := os.Getenv("PORT")
+	if port == "" {
+		// Render define PORT, este fallback es solo para desarrollo local
+		port = "8080"
+	}
+	addr := ":" + port
+
+	log.Printf("Servidor iniciado en puerto %s", addr)
+	if err := http.ListenAndServe(addr, r); err != nil {
 		log.Fatalf("Error iniciando servidor: %v", err)
 	}
 }
